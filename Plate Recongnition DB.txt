@@ -1,0 +1,81 @@
+Database Basics:
+
+
+CREATE TABLE Registration (
+    IDnum INT NOT NULL,
+    Name VARCHAR(40) NOT NULL,
+    PlateNum VARCHAR(40) NOT NULL,
+    PlateState VARCHAR(2) NOT NULL,
+    Make VARCHAR(40) NOT NULL,
+    Model VARCHAR(40) NOT NULL,
+    PersonType VARCHAR (40) NOT NULL,
+    Email VARCHAR(40) NOT NULL,
+    StartReg DateTime NOT NULL,
+    EndReg DateTime NOT NuLL,
+    PRIMARY KEY (IDnum)
+);
+
+Create Table RegFails (
+    PlateNum VARCHAR(40) NOT NULL,
+    PlateState VARCHAR(2) NOT NULL,
+    LogDate DateTime NOT NULL,
+    PRIMARY KEY (PlateNum)
+);
+
+Create Table AdminUser (
+    NameUser VARCHAR(20) NOT NULL,
+    Password VARCHAR(20) NOT NULL,
+    PRIMARY KEY (NameUser)
+);
+
+INSERT INTO AdminUser (NameUser, Password) values (admin,12345);
+
+Registration date time: 
+When a person is registered to the database have a timestamp taken from the python code and
+placed in so that value is stored in the database then from their it would add a few months to the timestamp to give a deadline
+period. Which then it would give a signal to the admin to delete the user with a notification, or
+to have the database send a delete query for the out of time users, such as the visitors that go past a 
+day pass.
+
+
+select * from Registration where IDnum = "123456" and PlateNum = *****;
+
+// Standard registration period
+INSERT INTO Registration (IDnum, Name, PlateNum, PlateState, Make, Model, PersonType, Email, StartReg, EndReg)
+Values (18, 'Jeffrey Tetkoskie', 'ALRIGHT', 'PA', 'Nissan', 'Altima', 'Visitor', 'jmt6265@psu.edu', Current_TIMESTAMP,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH));
+
+// Day pass Visitor
+Insert into Registration(IDnum, Name, PlateNum, PlateState, Make, Model, PersonType, Email, StartReg, EndReg) 
+Values (18, 'Jeffrey Tetkoskie', 'ALRIGHT', 'PA', 'Nissan', 'Altima', 'Visitor', 'jmt6265@psu.edu', Current_TIMESTAMP, Current_DATE+1);
+
+
+
+INSERT INTO Registration (IDnum, Name, PlateNum, PlateState, Make, Model, PersonType, Email, StartReg, EndReg)
+VALUES 
+    (1,'John Doe','8TRS777', 'CA', 'Toyota', 'Camry','Student','MisterE@psu.edu', Current_TIMESTAMP,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)),
+    (2,'Sarah Marshel','XYZ-789', 'NY', 'Honda', 'Accord','Visitor','SMarsh@psu.edu',Current_TIMESTAMP ,Current_DATE+1),
+    (3,'Mark Shaffer','DEF-456', 'TX', 'Ford', 'Mustang','Faculty','MShaff@psu.edu', Current_TIMESTAMP,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)),
+    (4,'Chris Redfield','GHI 789', 'FD', 'Chevrolet', 'Malibu','Faculty','ResEvil@psu.edu',Current_TIMESTAMP ,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)),
+    (5,'Ethan Winters','JKL 012', 'AZ', 'Nissan', 'Altima','Student','EWinters@psu.edu', Current_TIMESTAMP,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)),
+    (6,'Victor Sullivan','885-JEF', 'WI', 'Hyundai', 'Elantra','Faculty','Sully@psu.edu',Current_TIMESTAMP ,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)),
+    (7,'Elena Fisher','PQ 45678', 'IL', 'Volkswagen', 'Jetta','Visitor','EFish@psu.edu',Current_TIMESTAMP ,Current_DATE+1),
+    (8,'Nathan Drake','SND 877', 'HI', 'BMW', 'X5','Student','NDrake@psu.edu', Current_TIMESTAMP,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)),
+    (9,'Issac Clarke','DNJ 0955', 'MI', 'Mercedes-Benz', 'C-Class','Faculty','ICMarker@psu.edu', Current_TIMESTAMP,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH)),
+    (10,'Desmond Miles','YZA 567', 'OH', 'Kia', 'Optima','Student','DMiles@psu.edu',Current_TIMESTAMP ,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH),
+    (11,'Brendan Gaffney','ZMJ-1004', 'PA', 'Hyundai', 'Elantra','Student','BGaff@psu.edu',Current_TIMESTAMP ,DATE_ADD(CURRENT_DATE, INTERVAL 6 MONTH));
+
+
+
+Plates:
+
+Wisconsin WI 885-JEF 
+
+Michigan MI DNJ 0955 
+
+Hawaii HI SND 877 
+
+California CA 8TRS777 
+
+Pennsylvania PA ZMJ-1004 
+
+
